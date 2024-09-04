@@ -37,7 +37,8 @@
       "exclude": [
         "apps/api-gate-e2e/**/*",
         "apps/user-e2e/**/*",
-        "apps/shop-e2e/**/*"
+        "apps/shop-e2e/**/*",
+        "apps/file-e2e/**/*"
       ]
     }
   ]
