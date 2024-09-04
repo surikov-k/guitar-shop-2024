@@ -34,7 +34,11 @@
       "options": {
         "targetName": "test"
       },
-      "exclude": ["apps/api-gate-e2e/**/*", "apps/user-e2e/**/*"]
+      "exclude": [
+        "apps/api-gate-e2e/**/*",
+        "apps/user-e2e/**/*",
+        "apps/shop-e2e/**/*"
+      ]
     }
   ]
 }
