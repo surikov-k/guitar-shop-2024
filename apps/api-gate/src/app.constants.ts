@@ -1,0 +1,6 @@
+export const ENV_FILE_PATH = 'environments/.api.env';
+
+export enum EnvValidationError {
+  API_PORT_REQUIRED = 'Api port is required',
+  JwtATSecretRequired = 'Jwt Access token secret is required',
+}
