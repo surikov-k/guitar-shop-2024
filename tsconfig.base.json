@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@guitar-shop-2024/helpers": ["libs/shared/helpers/src/index.ts"],
       "@guitar-shop-2024/types": ["libs/shared/types/src/index.ts"]
     }
   },
