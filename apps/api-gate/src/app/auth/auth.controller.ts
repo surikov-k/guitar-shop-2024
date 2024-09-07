@@ -10,7 +10,6 @@ export class AuthController {
   @Post('register')
   public async register(@Body() dto: RegisterDto) {
     try {
-
       return await this.authService.register(dto);
     } catch ({ message, status }) {
       throw new HttpException(message, status);
