@@ -1,5 +1,6 @@
 import { RmqModule } from '@guitar-shop-2024/modules';
 import { Module } from '@nestjs/common';
+import { IsEmailUniqueConstraint } from '../common/validators';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 
@@ -10,6 +11,6 @@ import { AuthService } from './auth.service';
     }),
   ],
   controllers: [AuthController],
-  providers: [AuthService],
+  providers: [AuthService, IsEmailUniqueConstraint],
 })
 export class AuthModule {}
