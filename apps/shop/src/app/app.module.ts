@@ -1,3 +1,4 @@
+import { RmqModule } from '@guitar-shop-2024/modules';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { ENV_FILE_PATH, RABBITMQ_ENV_FILE_PATH } from './app.constants';
@@ -12,6 +13,7 @@ import { ShopItemModule } from './shop-item/shop-item.module';
       envFilePath: [ENV_FILE_PATH, RABBITMQ_ENV_FILE_PATH],
       validate: validateEnvironment
     }),
+    RmqModule,
     ShopItemModule,
 
   ],
