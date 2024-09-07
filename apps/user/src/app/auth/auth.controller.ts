@@ -1,7 +1,8 @@
-import { LoginInterface, RegisterInterface, UserEvent } from '@guitar-shop-2024/types';
 import { Controller } from '@nestjs/common';
 import { MessagePattern, Payload } from '@nestjs/microservices';
 import { AuthService } from './auth.service';
+
+import { LoginInterface, RegisterInterface } from '@guitar-shop-2024/types';
 
 @Controller('auth')
 export class AuthController {
@@ -9,7 +10,6 @@ export class AuthController {
 
   @MessagePattern({ cmd: UserEvent.Register })
   public async register(@Payload() { dto }: { dto: RegisterInterface }) {
-    console.log('user worker', dto);
     return await this.authService.register(dto);
   }
 

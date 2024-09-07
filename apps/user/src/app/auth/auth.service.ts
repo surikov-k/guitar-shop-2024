@@ -45,8 +45,6 @@ export class AuthService {
     const { email, password } = dto;
     const user = await this.shopUserRepository.findByEmail(email);
 
-    console.log('auth.service verify', user);
-
     if (!user) {
       throw new RpcException({
         status: HttpStatus.UNAUTHORIZED,
@@ -68,8 +66,6 @@ export class AuthService {
 
   public async login(dto: LoginInterface) {
     const user = await this.verify(dto);
-
-    console.log('auth.service login', user);
 
     return await this.getTokens(this.getJwtPayload(user));
   }
