@@ -15,7 +15,7 @@ async function bootstrap() {
   const port = process.env.PORT || 3000;
   await app.listen(port);
   Logger.log(
-    `🚀 File Service is running on: http://localhost:${port}/${globalPrefix}`
+    `📂 🚀 File Service is running on: http://localhost:${port}/${globalPrefix}`
   );
 }
 

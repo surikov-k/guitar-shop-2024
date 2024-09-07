@@ -24,7 +24,7 @@ async function bootstrap() {
   app.connectMicroservice(rmqService.getOptions(queue));
   await app.startAllMicroservices();
 
-  Logger.log(`🚀 Users microservice is started`);
+  Logger.log(`👤 🚀 User Worker is started`);
 }
 
 bootstrap();

@@ -24,7 +24,7 @@ async function bootstrap() {
   await app.startAllMicroservices();
 
   Logger.log(
-    `🚀 Shop Worker is started`,
+    `🛍️ 🚀 Shop Worker is started`,
   );
 }
 
