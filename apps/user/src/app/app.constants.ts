@@ -1,6 +1,8 @@
 export const ENV_FILE_PATH = 'environments/.users.env';
 export const RABBITMQ_ENV_FILE_PATH = 'environments/.rabbitmq.env';
 
+export const SALT_ROUNDS = 10;
+
 export enum EnvValidationMessage {
   DBHostRequired = 'MongoDB host is required',
   DBNameRequired = 'Database name is required',
