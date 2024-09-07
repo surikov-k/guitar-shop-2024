@@ -9,9 +9,9 @@ import { ShopUserModel } from './shop-user.model';
 @Injectable()
 export class ShopUserRepository extends BaseMongoRepository<ShopUserEntity, ShopUserModel> {
   constructor(
-    @InjectModel(ShopUserModel.name) appUserModel: Model<ShopUserModel>
+    @InjectModel(ShopUserModel.name) shopUserModel: Model<ShopUserModel>
   ) {
-    super(appUserModel, ShopUserEntity.fromObject);
+    super(shopUserModel, ShopUserEntity.fromObject);
   }
   public async findByEmail(email: string): Promise<ShopUserEntity | null> {
     const document = await this.model.findOne({ email }).exec();
