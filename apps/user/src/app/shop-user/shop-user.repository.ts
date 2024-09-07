@@ -15,6 +15,7 @@ export class ShopUserRepository extends BaseMongoRepository<ShopUserEntity, Shop
   }
   public async findByEmail(email: string): Promise<ShopUserEntity | null> {
     const document = await this.model.findOne({ email }).exec();
+    console.log('shopUserRepository findByEmail', this.createEntityFromDocument(document));
     return this.createEntityFromDocument(document);
   }
 }

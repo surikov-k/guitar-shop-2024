@@ -9,6 +9,7 @@ export class AuthController {
 
   @MessagePattern({ cmd: UserEvent.Register })
   public async register(@Payload() { dto }: { dto: RegisterInterface }) {
+    console.log('user worker', dto);
     return await this.authService.register(dto);
   }
 
