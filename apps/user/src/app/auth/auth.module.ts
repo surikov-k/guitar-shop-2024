@@ -1,10 +1,22 @@
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { JwtModule } from '@nestjs/jwt';
 import { Module } from '@nestjs/common';
-import { ShopUserModule } from '../shop-user/shop-user.module';
+
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
+import { ShopUserModule } from '../shop-user/shop-user.module';
+import { getJwtConfig } from '../config';
 
 @Module({
-  imports: [ShopUserModule],
+  imports: [
+    ShopUserModule,
+    JwtModule.registerAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: getJwtConfig,
+    }),
+
+  ],
   controllers: [AuthController],
   providers: [AuthService],
 })
