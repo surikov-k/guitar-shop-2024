@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { IsEmail, MaxLength, MinLength } from 'class-validator';
 
 import { IsEmailUnique } from '../../common/validators';
@@ -5,6 +6,10 @@ import { AuthError, PasswordLength, UsernameLength } from '../auth.constants';
 
 export class RegisterDto {
 
+  @ApiProperty({
+    description: 'A unique email address',
+    example: 'willis.white@yahoo.com'
+  })
   @IsEmail()
   @IsEmailUnique({
     message: AuthError.ALREADY_EXISTS,
@@ -12,6 +17,10 @@ export class RegisterDto {
   public email: string;
 
 
+  @ApiProperty({
+    description: 'A user name',
+    example: 'Willis White',
+  })
   @MinLength(UsernameLength.MIN, {
     message: AuthError.NAME_TOO_SHORT,
     always: true,
@@ -22,6 +31,10 @@ export class RegisterDto {
   public name: string;
 
 
+  @ApiProperty({
+    description: 'A user password',
+    example: '123456'
+  })
   @MinLength(PasswordLength.MIN, {
     message: AuthError.PASSWORD_TOO_SHORT,
   })
