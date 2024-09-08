@@ -1,5 +1,8 @@
 import { prepareDto } from '@guitar-shop-2024/helpers';
+import { JwtPayload } from '@guitar-shop-2024/types';
 import { Body, Controller, Get, HttpException, Post, UseGuards } from '@nestjs/common';
+import { GetUserPayload } from '../common/decorators';
+import { JwtAuthGuard } from '../common/guards';
 
 import { AuthService } from './auth.service';
 import { LoginDto, RegisterDto } from './dto';
@@ -9,11 +12,11 @@ import { UserRdo } from './rdo';
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  // @Get()
-  // @UseGuards(AccessTokenGuard)
-  // public async checkAuth(@CurrentUserRole() role: UserRole) {
-  //   return role;
-  // }
+  @UseGuards(JwtAuthGuard)
+  @Get('check')
+  async checkAuth(@GetUserPayload() payload: JwtPayload) {
+    return prepareDto(UserRdo, payload);
+  }
 
 
   @Post('register')
