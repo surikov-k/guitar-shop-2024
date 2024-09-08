@@ -4,6 +4,7 @@ export * from './lib/guitar-type.enum';
 export * from './lib/guitar.interface';
 export * from './lib/jwt-payload.type';
 export * from './lib/login.interface'
+export * from './lib/query-sort-direction.enum'
 export * from './lib/register.interface';
 export * from './lib/string-number.type';
 export * from './lib/tokens.type';

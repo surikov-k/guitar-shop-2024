@@ -35,3 +35,9 @@ export function getMongoConnectionString({
                                          }): string {
   return `mongodb://${username}:${password}@${host}:${port}/${databaseName}?authSource=${authDatabase}`;
 }
+
+export function normalizeGuitarType(string: string): string {
+  const letters =  string.toLowerCase().split('');
+  letters[0] = letters[0].toUpperCase()
+  return letters.join('');
+}
