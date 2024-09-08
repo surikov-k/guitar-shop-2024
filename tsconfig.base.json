@@ -18,6 +18,7 @@
       "@guitar-shop-2024/core": ["libs/shared/core/src/index.ts"],
       "@guitar-shop-2024/helpers": ["libs/shared/helpers/src/index.ts"],
       "@guitar-shop-2024/modules": ["libs/shared/modules/src/index.ts"],
+      "@guitar-shop-2024/shop-models": ["libs/shared/shop-models/src/index.ts"],
       "@guitar-shop-2024/types": ["libs/shared/types/src/index.ts"]
     }
   },
