@@ -1,14 +1,8 @@
+import { JwtPayload, LoginInterface, RegisterInterface, Tokens, User } from '@guitar-shop-2024/types';
 import { HttpStatus, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import { RpcException } from '@nestjs/microservices';
-
-import {
-  JwtPayload,
-  LoginInterface,
-  RegisterInterface,
-  Tokens,
-  User } from '@guitar-shop-2024/types';
 
 import { AuthError } from '../app.constants';
 import { ShopUserEntity } from '../shop-user/shop-user.entity';
@@ -36,9 +30,9 @@ export class AuthService {
 
     const entity = new ShopUserEntity(userData);
     await entity.setPassword(password);
-    const user = await this.shopUserRepository.save(entity);
 
-    return await this.getTokens(this.getJwtPayload(user));
+    // return await this.getTokens(this.getJwtPayload(user));
+    return await this.shopUserRepository.save(entity);
   }
 
   async verify(dto: LoginInterface) {
