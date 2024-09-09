@@ -1,5 +1,5 @@
 export interface FileInterface {
-  id?: number;
+  id?: string;
   // shopItemId: number;
   filename: string;
   userId: string;
