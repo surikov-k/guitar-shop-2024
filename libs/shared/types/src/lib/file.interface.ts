@@ -1,6 +1,6 @@
-export interface File {
+export interface FileInterface {
   id?: number;
-  shopItemId: number;
+  // shopItemId: number;
   filename: string;
-  userId: number;
+  userId: string;
 }
