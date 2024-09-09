@@ -13,6 +13,7 @@ import {
   UseGuards
 } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
+import { CurrentUserId } from '../common/decorators';
 import { JwtAuthGuard } from '../common/guards';
 import { ShopItemIdValidationPipe } from '../common/pipes';
 import { CreateShopItemDto, UpdateShopItemDto } from './dto';
@@ -44,7 +45,7 @@ export class ShopController {
     status: HttpStatus.OK,
     description: 'The shop item is found',
   })
-  public async get(@Param('id', ShopItemIdValidationPipe) id: number) {
+  public async get(@Param('id', ShopItemIdValidationPipe) id: string) {
     const item = await this.shopItemService.get(id);
     return prepareDto(ShopItemRdo, item);
   }
@@ -57,8 +58,15 @@ export class ShopController {
     status: HttpStatus.CREATED,
     description: 'Shop item is created',
   })
-  public async create(@Body() dto: CreateShopItemDto) {
-    const item = await this.shopItemService.create(dto);
+  public async create(
+    @Body() dto: CreateShopItemDto,
+    @CurrentUserId() userId: string
+  ) {
+
+    const item = await this.shopItemService.create({
+      ...dto,
+      userId
+    });
     return prepareDto(ShopItemRdo, item);
   }
 
@@ -69,7 +77,7 @@ export class ShopController {
     description: 'Shop item is updated',
   })
   public async update(
-    @Param('id', ShopItemIdValidationPipe) id: number,
+    @Param('id', ShopItemIdValidationPipe) id: string,
     @Body() dto: UpdateShopItemDto
   ) {
     const item = await this.shopItemService.update(id, dto);

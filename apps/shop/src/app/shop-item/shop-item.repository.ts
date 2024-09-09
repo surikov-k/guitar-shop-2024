@@ -30,6 +30,7 @@ export class ShopItemRepository extends BasePostgresRepository<ShopItemEntity, G
   }
 
   public async findById(id: string): Promise<ShopItemEntity> {
+
     const document = await this.client.shopItem.findFirst({
       where: { id },
     });
@@ -43,7 +44,7 @@ export class ShopItemRepository extends BasePostgresRepository<ShopItemEntity, G
     const getSortOption = (type: ShopItemQueryInterface['sort']) => {
       const sortOption = {
         price: { price: direction },
-        added: { addedAt: direction },
+        added: { createdAt: direction },
       };
       return sortOption[type];
     };

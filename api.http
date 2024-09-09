@@ -20,4 +20,39 @@ Content-Type: application/json
 
 ### Check auth
 GET http://localhost:4000/api/auth/check HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxpemFiZXRoLmtpbGJhY2szQGhvdG1haWwuY29tIiwibmFtZSI6ItCV0LvQuNC30LDQstC10YLQsCIsImlhdCI6MTcyNTc5MjM1NCwiZXhwIjoxNzI1Nzk1OTU0fQ.iwaJ4k9sSg52fdnsTpVoSc3-wajQMyAB7805cN4z_kI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NmRkNWY5ZmEwZWFjZDE1YjYwMTM1MzMiLCJlbWFpbCI6ImxpemFiZXRoLmtpbGJhY2szQGhvdG1haWwuY29tIiwibmFtZSI6ItCV0LvQuNC30LDQstC10YLQsCIsImlhdCI6MTcyNTkwMjU0MiwiZXhwIjoxNzI1OTA2MTQyfQ.Z3ZEX7KVzF8yx-D_pCNdCAJhHIMPWH465rtJihz_yKw
+
+
+
+### Get shop items  list
+GET localhost:4000/api/shop HTTP/1.1
+
+### Get shop items filtered list
+GET localhost:4000/api/shop?sort=price&direction=asc&type=electric&strings=6&limit=2&page=1 HTTP/1.1
+
+### Get a shop item
+GET localhost:4000/api/shop/6d308040-96a2-4162-bea6-2338e9976540 HTTP/1.1
+
+### Create a new shop item
+POST localhost:4000/api/shop HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NmRkNWY5ZmEwZWFjZDE1YjYwMTM1MzMiLCJlbWFpbCI6ImxpemFiZXRoLmtpbGJhY2szQGhvdG1haWwuY29tIiwibmFtZSI6ItCV0LvQuNC30LDQstC10YLQsCIsImlhdCI6MTcyNTkwMjU0MiwiZXhwIjoxNzI1OTA2MTQyfQ.Z3ZEX7KVzF8yx-D_pCNdCAJhHIMPWH465rtJihz_yKw
+
+{
+  "name": "Gibson Les Paul Traditional Pro V",
+  "description": "The Gibson Trad Pro V electric guitar shares the same DNA as a Les Paul—mahogany body and neck, carved maple top—but it's also a completely evolved instrument. You'll feel it first: The body is weight-relieved, making it super comfortable to sling on the shoulder. The neck has an asymmetrical shape that fits like a glove. Thanks to the compound radius rosewood fretboard, you'll find it easier to solo in higher registers. And that's where you'll hear the difference, too.",
+  "type": "Electric",
+  "code": "1500000000287968",
+  "stringsNumber": 6,
+  "price": 1399
+}
+
+### Update a shop item
+PATCH localhost:4000/api/shop/d4df7028-d87c-4910-85c7-76f68ae8b331 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NmRkNWY5ZmEwZWFjZDE1YjYwMTM1MzMiLCJlbWFpbCI6ImxpemFiZXRoLmtpbGJhY2szQGhvdG1haWwuY29tIiwibmFtZSI6ItCV0LvQuNC30LDQstC10YLQsCIsImlhdCI6MTcyNTkwMjU0MiwiZXhwIjoxNzI1OTA2MTQyfQ.Z3ZEX7KVzF8yx-D_pCNdCAJhHIMPWH465rtJihz_yKw
+
+{
+  "name": "Ibanez GRGR120EX222",
+  "code": "234523452345"
+}

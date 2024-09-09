@@ -70,4 +70,10 @@ export class ShopItemRdo {
   public price: number;
 
 
+  @ApiProperty({
+    description: 'User ID',
+    example: '62b3dfb2a6c3f1fb247a74a1',
+  })
+  // @Expose()
+  public userId: string;
 }

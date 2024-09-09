@@ -1,6 +1,6 @@
 import {
   IsIn, IsMongoId,
-  IsNumber,
+  IsNumber, IsOptional,
   IsString,
   Max,
   MaxLength,
@@ -105,5 +105,6 @@ export class CreateShopItemDto {
     example: '5f1d0a8a0b1c2d3e4f5g6h7i',
   })
   @IsMongoId()
+  @IsOptional()
   public userId: string;
 }

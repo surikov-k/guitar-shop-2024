@@ -1,5 +1,5 @@
-import { Document, Model } from 'mongoose';
 import { NotFoundException } from '@nestjs/common';
+import { Document, Model } from 'mongoose';
 
 import { Entity, EntityIdType } from './entity.interface';
 import { Repository } from './repository.interface';
@@ -18,8 +18,12 @@ export abstract class BaseMongoRepository<
     if (! document) {
       return null;
     }
-
-    return this.createEntity(document.toObject({ versionKey: false }));
+    return this.createEntity(
+      {
+        ...document.toObject({ versionKey: false }),
+        id: document._id.toString(),
+      }
+    );
   }
 
   public async findById(id: EntityType['id']): Promise<EntityType | null> {

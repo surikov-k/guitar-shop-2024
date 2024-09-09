@@ -5,7 +5,7 @@ export interface Guitar {
   id?: string;
   name: string;
   description: string;
-  addedAt?: Date;
+  createdAt?: Date;
   photo?: string;
   type: GuitarType;
   code: string;

@@ -1,6 +1,7 @@
 import { Guitar, ShopItemEvent } from '@guitar-shop-2024/types';
 import { Inject, Injectable } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
+import { logger } from 'nx/src/utils/logger';
 import { firstValueFrom } from 'rxjs';
 import { CreateShopItemDto, UpdateShopItemDto } from './dto';
 import { ShopItemQuery } from './query';
@@ -23,7 +24,7 @@ export class ShopService {
     );
   }
 
-  async get(id: number): Promise<Guitar> {
+  async get(id: string): Promise<Guitar> {
      return firstValueFrom<Guitar>(
        this.shopService.send({ cmd: ShopItemEvent.Get }, { id })
      )
@@ -35,7 +36,7 @@ export class ShopService {
     );
   }
 
-  async update(id: number, dto: UpdateShopItemDto): Promise<Guitar> {
+  async update(id: string, dto: UpdateShopItemDto): Promise<Guitar> {
     return firstValueFrom<Guitar>(
       this.shopService.send({ cmd: ShopItemEvent.Update }, { id, dto })
     );
