@@ -2,7 +2,7 @@ import { GuitarType } from './guitar-type.enum';
 import { StringNumber } from './string-number.type';
 
 export interface Guitar {
-  id?: number;
+  id?: string;
   name: string;
   description: string;
   addedAt?: Date;
@@ -11,5 +11,4 @@ export interface Guitar {
   code: string;
   stringsNumber: StringNumber;
   price: number;
-  rating: number;
 }
