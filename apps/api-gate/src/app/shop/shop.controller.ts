@@ -15,7 +15,7 @@ import {
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { JwtAuthGuard } from '../common/guards';
 import { ShopItemIdValidationPipe } from '../common/pipes';
-import { CreateShopItemDto } from './dto';
+import { CreateShopItemDto, UpdateShopItemDto } from './dto';
 
 import { ShopItemQuery } from './query';
 import { ShopItemListRdo, ShopItemRdo } from './rdo';

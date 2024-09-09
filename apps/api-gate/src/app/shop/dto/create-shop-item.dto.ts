@@ -1,11 +1,11 @@
 import {
-  IsIn,
+  IsIn, IsMongoId,
   IsNumber,
   IsString,
   Max,
   MaxLength,
   Min,
-  MinLength,
+  MinLength
 } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
@@ -97,4 +97,13 @@ export class CreateShopItemDto {
     message: ShopItemError.PRICE_TOO_HIGH,
   })
   public price: number;
+
+
+  @ApiProperty({
+    description:
+      'User ID. Required. The ID of the user who created the item.',
+    example: '5f1d0a8a0b1c2d3e4f5g6h7i',
+  })
+  @IsMongoId()
+  public userId: string;
 }
