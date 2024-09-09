@@ -11,4 +11,5 @@ export interface Guitar {
   code: string;
   stringsNumber: StringNumber;
   price: number;
+  userId: string;
 }

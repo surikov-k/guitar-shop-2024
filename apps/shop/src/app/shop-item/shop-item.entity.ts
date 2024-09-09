@@ -5,6 +5,7 @@ import { Guitar, GuitarType, StringNumber } from '@guitar-shop-2024/types';
 export class ShopItemEntity implements Entity<string, Guitar>, Guitar {
   public addedAt: Date;
   public code: string;
+  public userId: string;
   public description: string;
   public id?: string;
   public name: string;
@@ -19,6 +20,7 @@ export class ShopItemEntity implements Entity<string, Guitar>, Guitar {
     this.photo = shopItem.photo;
     this.description = shopItem.description;
     this.name = shopItem.name;
+    this.userId = shopItem.userId;
     this.price = shopItem.price;
     this.stringsNumber = shopItem.stringsNumber;
     this.type = shopItem.type;
