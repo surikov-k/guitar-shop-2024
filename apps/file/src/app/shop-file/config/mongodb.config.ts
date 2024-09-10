@@ -14,16 +14,18 @@ export const mongoDbOptions = registerAs('database', () => ({
 
 export function getMongoDbConfig(): MongooseModuleAsyncOptions {
   return {
-    useFactory: async (configService: ConfigService) => ({
-      uri: getMongoConnectionString({
-        username: configService.get<string>('database.user'),
-        password: configService.get<string>('database.password'),
-        host: configService.get<string>('database.host'),
-        port: configService.get<number>('database.port'),
-        authDatabase: configService.get<string>('database.authBase'),
-        databaseName: configService.get<string>('database.name'),
-      }),
-    }),
+    useFactory: async (configService: ConfigService) => {
+      return ({
+        uri: getMongoConnectionString({
+          username: configService.get<string>('database.user'),
+          password: configService.get<string>('database.password'),
+          host: configService.get<string>('database.host'),
+          port: configService.get<number>('database.port'),
+          authDatabase: configService.get<string>('database.authBase'),
+          databaseName: configService.get<string>('database.name')
+        })
+      });
+    },
     inject: [ConfigService],
   };
 }

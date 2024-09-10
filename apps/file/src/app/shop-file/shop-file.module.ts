@@ -5,14 +5,16 @@ import { MulterModule } from '@nestjs/platform-express';
 
 import { getMulterConfig } from './config';
 import { ShopFileController } from './shop-file.controller';
+import { ShopFileModel, ShopFileSchema } from './shop-file.model';
+import { ShopFileRepository } from './shop-file.repository';
 import { ShopFileService } from './shop-file.service';
 
 @Module({
   imports: [
     MongooseModule.forFeature([
       {
-        name: UploadModel.name,
-        schema: UploadSchema,
+        name: ShopFileModel.name,
+        schema: ShopFileSchema,
       },
     ]),
     MulterModule.registerAsync({

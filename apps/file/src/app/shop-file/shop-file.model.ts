@@ -11,8 +11,8 @@ export class ShopFileModel extends Document implements FileInterface {
   @Prop({ required: true })
   filename: string;
 
-  @Prop()
-  userId: string;
+  // @Prop()
+  // userId: string;
 }
 
 export const ShopFileSchema = SchemaFactory.createForClass(ShopFileModel);

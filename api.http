@@ -56,3 +56,17 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NmRkNWY5Z
   "name": "Ibanez GRGR120EX222",
   "code": "234523452345"
 }
+
+
+### Upload a shop item picture
+POST http://localhost:3600/api/upload
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="avatar.png"
+
+< /Users/sk/Desktop/avatar.png
+--WebAppBoundary--
+
+### Get shop item picture
+GET http://localhost:3600/uploads/1725925246325.avatar.jpg

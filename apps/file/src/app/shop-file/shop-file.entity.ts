@@ -6,7 +6,7 @@ export class ShopFileEntity
   implements FileInterface, Entity<string> {
   id: string;
   filename: string;
-  userId: string;
+  // userId: string;
 
   constructor(file: FileInterface) {
     this.populate(file);
@@ -15,14 +15,14 @@ export class ShopFileEntity
   populate(file: FileInterface): void {
     this.id = file.id;
     this.filename = file.filename;
-    this.userId = file.userId;
+    // this.userId = file.userId;
   }
 
   toPlainObject() {
     return {
       id: this.id,
       filename: this.filename,
-      userId: this.userId
+      // userId: this.userId
     };
   }
 

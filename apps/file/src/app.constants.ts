@@ -14,3 +14,9 @@ export enum EnvValidationMessage {
   JwtATSecretRequired = 'Jwt Access token secret is required',
   UploadDirRequired = 'Path to uploads directory is required',
 }
+export const UploadFile = {
+  DIRECTORY: 'apps/file/uploads',
+  ALLOWED_TYPE: '.(png|jpg|jpeg)',
+  MAX_SIZE: 1024 * 1024,
+};
+export const SERVE_ROOT = '/uploads/';
