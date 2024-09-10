@@ -31,7 +31,7 @@ export class ShopItemRdo {
     example: '2023-02-05T19:10:34.009Z',
   })
   @Expose()
-  public addedAt: string;
+  public createdAt: string;
 
   @ApiProperty({
     description: 'Guitar photos ids',
